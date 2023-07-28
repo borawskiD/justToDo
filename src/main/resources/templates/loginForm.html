@@ -17,13 +17,8 @@
             <header class="text-center mb-3">
                 <h1>To Do App</h1>
             </header>
-            <form>
-                <div th:if="${param.error}">
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}">
-                    You have been logged out.
-                </div>
+            <form th:action="@{/login}" method="post">
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -34,6 +29,13 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <br />
+            <div th:if="${param.error}" class="text-danger">
+                Invalid username and/or password.
+            </div>
+            <div th:if="${param.logout}" class="text-danger">
+                You have been logged out.
+            </div>
         </div>
         <div class="col-4"></div>
     </div>
