@@ -1,4 +1,4 @@
-package com.example.justtodo;
+package com.example.justtodo.UserAuthorization;
 
 public class UserCredentialsDTO {
     private final String email;

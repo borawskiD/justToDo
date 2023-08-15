@@ -1,4 +1,4 @@
-package com.example.justtodo;
+package com.example.justtodo.UserAuthorization;
 
 import org.springframework.stereotype.Service;
 

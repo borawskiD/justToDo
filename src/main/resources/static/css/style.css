@@ -14,3 +14,14 @@
     color:#c0392b !important;
     font-weight: bold;
 }
+.card{
+    width:250px !important;
+}
+.information-alert{
+    text-align: center;
+    color:greenyellow !important;
+    font-size: 24px;
+}
+.btn-small{
+
+}
