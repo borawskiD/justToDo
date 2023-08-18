@@ -38,7 +38,7 @@ public class PanelController {
     }
     @GetMapping("/")
     public String panel(Model model, Authentication authentication){
-        Optional<List<TaskEntity>> tasks = taskService.generateTasks(authentication.getName());
+        Optional<List<TaskEntity>> tasks = taskService.generateTasks(authentication.getName(), false);
         if (tasks.isPresent() && tasks.get().size() > 0){
             int length = tasks.get().size();
             List<TaskEntity> firstRow = new ArrayList<>();
@@ -84,7 +84,7 @@ public class PanelController {
                 taskService.removeTask(taskId);
                 break;
             case "edit":
-                Optional<TaskDTO> task = taskService.findTask(taskId);
+                Optional<TaskDTO> task = taskService.findTask(taskId, false);
                 if(task.isEmpty()) return new ModelAndView("redirect:/", model);
                 TaskDTO taskDTO = task.get();
                 redirectAttributes.addFlashAttribute("taskCategory", taskDTO.getCategory());
@@ -108,4 +108,23 @@ public class PanelController {
         return new ModelAndView("redirect:/", model);
     }
 
+    @GetMapping("/archive")
+    public String openArchive(Authentication authentication, Model model){
+        System.out.println(authentication.getName());
+        Optional<List<TaskEntity>> tasks = taskService.generateTasks(authentication.getName(), true);
+        if (tasks.isPresent()){
+            List<TaskEntity> tasksEntities = tasks.get();
+            model.addAttribute("tasksArchived", tasksEntities);
+        }
+        return "archiveTemplate.html";
+    }
+    @GetMapping("/search")
+    public String search(String category, Authentication authentication, Model model){
+        Optional<List<TaskEntity>> optionalTaskEntities = taskService.filterTasksByCategory(category, authentication.getName());
+        if (optionalTaskEntities.isPresent()) {
+            List<TaskEntity> taskEntities = optionalTaskEntities.get();
+            model.addAttribute("taskFiltered", taskEntities);
+        }
+        return "filterOutput.html";
+    }
 }
