@@ -50,9 +50,11 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item"> <form th:action="@{/logout}" method="post">
-                                    <button class="btn-small" type="submit" value="Sign Out"></button>
-                                </form></a></li>
+                                <li>
+                                    <form th:action="@{/logout}" method="post">
+                                    <button class="dropdown-item" type="submit" value="Sign Out">Sign out</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                     </div>

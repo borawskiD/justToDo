@@ -118,7 +118,13 @@
                 <td class="pt-3" th:text="${task.description}">Please it is really important stuff</td>
                 <td class="pt-3" th:text="${task.category}">School</td>
                 <td class="pt-3" th:text="${task.createdAt}">3/10/2023 21:37</td>
-                <td><button type="button" class="btn btn-outline-light">Restore</button></td>
+                <td>
+                    <form th:action="@{/restoreTask}" method="post">
+                        <input type="hidden" th:value="${task.id}" th:name="task_id" />
+                        <button type="submit" class="btn btn-outline-light">Restore</button>
+                    </form>
+
+                </td>
             </tr>
             </tbody>
         </table>

@@ -127,4 +127,10 @@ public class PanelController {
         }
         return "filterOutput.html";
     }
+    @PostMapping("/restoreTask")
+    public ModelAndView restoreTask(String task_id, ModelMap model){
+        taskService.restoreTask(task_id);
+        return new ModelAndView("redirect:/", model);
+
+    }
 }

@@ -116,4 +116,20 @@ public class TaskService {
         return false;
     }
 
+    public void restoreTask(String taskId){
+        try{
+            Long id = Long.valueOf(taskId);
+
+            Optional<TaskEntity> optionalTaskEntity = taskRepository.findById(id);
+            if (optionalTaskEntity.isPresent()){
+                TaskEntity taskBeforeEdit = optionalTaskEntity.get();
+                taskRepository.delete(taskBeforeEdit);
+                taskBeforeEdit.setDone(false);
+                taskRepository.save(taskBeforeEdit);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
