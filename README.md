@@ -13,7 +13,8 @@
 ## What did I learn?
 
 Developing an application from beginning to end is a long and tough process, my ideas and plans for features were changing during creating the app, which I think gives me some real coding experience. Working on the project gave me the energy to create more advanced websites.
-##Quick screenshoots
+
+## Quick screenshots
 ![Front panel photo](https://i.imgur.com/F4TOvE0.png)
 Main user panel, where it's possible to see active tasks (up to 12), change and edit them, add new task or go to the task archive.
 ![Add new task badge](https://i.imgur.com/iRl3ShF.png)
