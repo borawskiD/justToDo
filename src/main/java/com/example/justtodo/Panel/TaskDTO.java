@@ -3,6 +3,8 @@ package com.example.justtodo.Panel;
 import com.example.justtodo.UserAuthorization.User;
 
 import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TaskDTO {
 
@@ -22,6 +24,20 @@ public class TaskDTO {
         this.isDone = isDone;
         this.user = user;
         this.createdAt = LocalDateTime.now();
+    }
+
+    public TaskDTO(TaskEntity task) {
+        this.id = task.getId();
+        this.title = task.getTitle();
+        this.category = task.getCategory();
+        this.description = task.getDescription();
+        this.isDone = task.isDone();
+    }
+
+    public static List<TaskDTO> convertTaskList(List<TaskEntity> taskList){
+        List<TaskDTO> taskDtoList = new LinkedList<>();
+        taskList.forEach(task -> taskDtoList.add(new TaskDTO(task)));
+        return taskDtoList;
     }
 
     public TaskDTO(String title, String category, String description, boolean isDone) {
