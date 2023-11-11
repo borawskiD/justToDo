@@ -1,6 +1,6 @@
 # Just ToDo
 
-"To do app" is one of the most popular types of first applications - an easy concept and a nice opportunity to just try out some important skills. Just ToDo is a web CRUD application fully written in Spring.
+"To do app" is one of the most popular types of first applications - an easy concept and a nice opportunity to just try out some important skills. Just ToDo is a web CRUD application fully written in Spring with REST API Support.
 
 ## Tech stack
 
